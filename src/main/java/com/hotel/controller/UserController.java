@@ -30,9 +30,9 @@ public class UserController {
     }
     @PostMapping("/login")
     public ResponseEntity<String> login(@RequestBody LoginDto loginDto ){
-       boolean status = userService.verifyLogin(loginDto);
-       if (status){
-           return new ResponseEntity<>("User SignIn Sucessfull",HttpStatus.OK);
+       String token = userService.verifyLogin(loginDto);
+       if (token!=null){
+           return new ResponseEntity<>(token,HttpStatus.OK);
        }
         return new ResponseEntity<>("Invalid Credentials",HttpStatus.UNAUTHORIZED);
 
