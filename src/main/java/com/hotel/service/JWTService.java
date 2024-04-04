@@ -26,7 +26,7 @@ public class JWTService {
     public void postContruct(){
         algorithm = Algorithm.HMAC256(algorithmKey);
     }
-    //For creating JWT-token use this line of code("Remember CEIS" flow)
+    //For creating JWT-token use this line of code(Remember "CEIS" flow)
     public String generateToken(PropertyUser propertyUser){
         return JWT.create()
                 .withClaim(USER_NAME,propertyUser.getUsername())

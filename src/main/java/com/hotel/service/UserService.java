@@ -12,7 +12,6 @@ import java.util.Optional;
 @Service
 public class UserService {
     private PropertyUserRepository userRepository;
-
     private JWTService jwtService;
 
     public UserService(PropertyUserRepository userRepository, JWTService jwtService) {
