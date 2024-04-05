@@ -22,7 +22,7 @@ public class SecurityConfig {
         http.csrf().disable().cors().disable();
         http.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class);
         http.authorizeHttpRequests().
-        //This line is for SignUp & Login URL is open otherthan this url all URL needs Authentication//
+        //This line is for SignUp & Login URL is open other than this url all URL needs Authentication//
         requestMatchers("/api/v1/users/addUser", "/api/v1/users/login").permitAll().
         anyRequest().authenticated();
 

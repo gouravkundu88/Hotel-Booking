@@ -1,5 +1,6 @@
 package com.hotel.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 @Entity
@@ -21,10 +22,10 @@ public class PropertyUser {
 
     @Column(name = "username", nullable = false, unique = true, length = 150)
     private String username;
-
+    @JsonIgnore
     @Column(name = "password", nullable = false, length = 250)
     private String password;
-
+    @JsonIgnore
     @Column(name = "user_role", nullable = false, length = 25)
     private String userRole;
 
