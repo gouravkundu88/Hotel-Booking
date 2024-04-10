@@ -21,19 +21,21 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception{
         http.csrf().disable().cors().disable();
         http.addFilterBefore(jwtRequestFilter, AuthorizationFilter.class);
-        http.authorizeHttpRequests().
+        http.authorizeHttpRequests().anyRequest().permitAll();
         //This line is for SignUp & Login URL is open other than this url all URL needs Authentication//
-        requestMatchers("/api/v1/users/addUser", "/api/v1/users/login")
-                .permitAll()
-                //This line use for Role Authentication for Role Base Login
-                .requestMatchers("/api/v1/countries/addCountry").hasRole("ADMIN")
-                .requestMatchers("/api/v1/profile").hasAnyRole("ADMIN","USER")
-                .anyRequest().authenticated();
+//        requestMatchers("/api/v1/users/addUser", "/api/v1/users/login")
+//                .permitAll()
+//                //This line use for Role Authentication for Role Base Login
+//                .requestMatchers("/api/v1/countries/addCountry").hasRole("ADMIN")
+//                .requestMatchers("/api/v1/profile").hasAnyRole("ADMIN","USER")
+//                .anyRequest().authenticated();
 
-                //For Java8 replace .requestMatchers with .antmatchers;
+                //For Java8 replace .requestMatchers with .antMatchers;
                 //For Java8 replace http.authorizeHttpRequest with .authorizeRequest;
                 //For Java8 replace jakarta with javax;
 
         return http.build();
     }
 }
+
+//I have done still commented Security Config file.
